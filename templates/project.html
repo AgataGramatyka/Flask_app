@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+  <h1>Bonjour {{ name }}</h1>
+  <p>Merci de m'avoir contacté, vous allez recevoir un mail à l'adresse {{ email }}</p>
+</div>
+
+<div>
+  <h1>Would you like to know the current weather conditions?</h1>
+  <p>Right now the weather is: {{ ((weather["currently"]["temperature"]) - 32) * 5/9}}</p>
+</div>
+
+<div>
+  <h1>Predict your salary</h1>
+  <form action="{{ url_for('predict') }}" method="post">
+    <div class="">
+      <input type="float" name="regression" placeholder="years of experience">
+      <input type="Submit" value="Find out">
+    </div>
+  </form>
+</div>
+
+{% endblock %}
